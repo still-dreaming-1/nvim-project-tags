@@ -23,19 +23,19 @@ plugin.commandSync('SayHello', {
 	}
 })
 
-plugin.autocmdSync('BufEnter', {
-	pattern: '*.js'
-}, function(nvim, cb) {
-	try {
-		incrementCalls()
-		nvim.setCurrentLine(
-			'I am a JavaScript file! Stole your line!',
-			cb
-		)
-	} catch (err) {
-		cb(err)
-	}
-})
+// plugin.autocmdSync('BufEnter', {
+// 	pattern: '*.js'
+// }, function(nvim, cb) {
+// 	try {
+// 		incrementCalls()
+// 		nvim.setCurrentLine(
+// 			'I am a JavaScript file! Stole your line!',
+// 			cb
+// 		)
+// 	} catch (err) {
+// 		cb(err)
+// 	}
+// })
 
 plugin.function('ReplaceLineWithJunk', function( nvim, args ) {
 	try {
