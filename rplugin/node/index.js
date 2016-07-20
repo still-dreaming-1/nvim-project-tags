@@ -9,6 +9,9 @@
 //
 // nvim is another significant thing for interacting with Neovim. An object named nvim gets passed to your callback functions. You can use its methods to interact with Neovim. The
 // methods are generated from the Neovim api. You can see the api in the Neovim c code at: https://github.com/neovim/neovim/tree/master/src/nvim/api
+// Also, here is some relevant documentation in the help :h msgpack_rpc
+// That provides this command you can run from a terminal to see some output of the API: 
+// nvim --api-info | python -c 'import msgpack, sys, yaml; print yaml.dump(msgpack.unpackb(sys.stdin.read()))'
 //
 // Here are some examples of methods you can call:
 //
