@@ -1,3 +1,11 @@
+// plugin let's you register new commands, autocommands, and functions. You pass callbacks that get run when that command/autocmd/function gets run. if you add 'Sync' to the end of theme
+// method name, it will run synchronously. Otherwise, the code runs asynchronously by default. So the methods are:
+// plugin.command()
+// plugin.commandSync()
+// plugin.autocmd()
+// plugin.autocmdSync()
+// plugin.function()
+// plugin.functionSync()
 var fmt = require('util').format,
 	numCalls = 0
 
