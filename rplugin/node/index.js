@@ -41,6 +41,19 @@ plugin.commandSync('SayHello', {
 	}
 })
 
+plugin.commandSync('PrintAPIMethods', {
+	range: '',
+	nargs: '*'
+}, function(nvim, args, range, cb) {
+	try {
+		nvim.command("echo 'called an API method'", cb)
+		var propertyNames= Object.getOwnPropertyNames(nvim)
+		nvim.command("echo '" + propertyNames + "'", cb)
+	} catch(err) {
+		cb(err)
+	}
+})
+
 plugin.commandSync('DeleteLine', {
 	range: '',
 	nargs: '*'
@@ -58,6 +71,19 @@ plugin.commandSync('AltDeleteLine', {
 }, function(nvim, args, range, cb) {
 	try {
 		nvim.command('DeleteLine', cb)
+	} catch(err) {
+		cb(err)
+	}
+})
+
+plugin.commandSync('EchoBufferLineCount', {
+	range: '',
+	nargs: '*'
+}, function(nvim, args, range, cb) {
+	try {
+		var currentBuffer= nvim.getCurrentBuffer(cb)
+		var lineCount= nvim.GetBufferLineCount(currentBuffer, cb)
+		nvim.command("echo " + lineCount)
 	} catch(err) {
 		cb(err)
 	}
